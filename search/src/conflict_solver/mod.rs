@@ -21,13 +21,13 @@ fn get_best_option(s: &String, options: &mut Vec<(usize, usize, f64)>, strategie
         }
 
         if strategy == "best_match" {
-            let max_score: f64 = match options.into_iter().map(|x| x.2).max_by(|a, b| a.total_cmp(b))  {
-                Some(max) => max,
+            let best_score: f64 = match options.into_iter().map(|x| x.2).min_by(|a, b| a.total_cmp(b))  {
+                Some(min) => min,
                 None => 0.0
             };
 
             for idx in (0..options.len()).rev() {
-                if options[idx].2 != max_score {
+                if options[idx].2 != best_score {
                     options.remove(idx);
                 }
             }
