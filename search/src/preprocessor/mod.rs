@@ -2,10 +2,6 @@ fn lower_case(s: String) -> String {
     return s.to_lowercase()
 }
 
-fn to_lf(s: String) -> String {
-    return s.replace("\r", "")
-}
-
 fn line_break_to_space(s: String) -> String {
     return s.replace("\n", " ")
 }
@@ -35,7 +31,6 @@ fn replace_special_char(s: String) -> String {
 }
 
 pub fn preprocess (mut s: String, ignore_case: bool, ignore_special_char: bool) -> String {
-    s = to_lf(s);
     s = line_break_to_space(s);
 
     if ignore_case {
