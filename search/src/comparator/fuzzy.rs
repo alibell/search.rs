@@ -1,6 +1,10 @@
 use rapidfuzz::distance::{damerau_levenshtein, levenshtein, hamming, indel, jaro, jaro_winkler, lcs_seq, osa, postfix, prefix};
 use std::cmp;
 
+// @TODO :
+// Use score cut-off to drop computation when there is a big difference
+// Use batch comparator to optimize computation
+
 fn apply_method(
     text1: &String,
     text2: &String,

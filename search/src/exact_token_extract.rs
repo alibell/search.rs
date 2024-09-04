@@ -22,9 +22,16 @@ pub fn extract(
 
     // We iterate over the string and we store the offsets
     let mut offsets: Vec<(usize, usize, f64)> = Vec::new();
+    let n_tokens: usize = pattern
+                    .split(&tokenizer_pattern)
+                    .filter(|s| *s != tokenizer_pattern)
+                    .collect::<Vec<&str>>()
+                    .len();
+
     let iterator = crate::iterator::tokens::TokenIterator::new(
         &s,
-        &tokenizer_pattern
+        &tokenizer_pattern,
+        n_tokens
     );
 
     pattern = crate::preprocessor::trim_text(pattern);

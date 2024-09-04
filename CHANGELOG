@@ -1,0 +1,4 @@
+# 0.1.3
+
+* Bug fix, the token comparison now works with multitoken comparator: "a b c" versus "a b" compare : ["a b", "b c"] to "a b" instead of ["a", "b", "c"] to ["a", "b"]
+* Adding strategies to fuzzy search
